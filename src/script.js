@@ -53,6 +53,9 @@ function deleteTask(){
             if (closestTask) {
                 console.log('Deleting task:', closestTask.querySelector('.task-description').textContent);
                 closestTask.remove();
+                if(list.innerHTML == ''){
+                    list.style.marginTop = '-20px'
+                }
                 saveData();
             }
         }
@@ -66,5 +69,10 @@ function saveData() {
 
 function showTasksSaved() {
     list.innerHTML = localStorage.getItem("data");
+    list.style.marginTop = '0px';
+    if(list.innerHTML == ''){
+        list.style.marginTop = '-20px'
+    }
+    deleteTask();
 }
 showTasksSaved();
