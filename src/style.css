@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Oswald:wght@300&family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg: #10101d;
+    --bg-tasks: #161628;
+    --gray: #262626;
+    --details: #9198e5;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to left, #e66465, var(--details));
+}
+
+.todo-app {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--bg);
+    width: 450px;
+}
+
+.todo-app h1 {
+    color: white;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.row input {
+    background-color: var(--bg);
+    color: #e5f9ff;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    border-bottom: 2px solid var(--details);
+    padding: 4px;
+}
+
+.row input:focus-visible{
+    outline: none;
+}
+
+.row button {
+    border: none;
+    background-color: var(--details);
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 100%;
+    transition: scale 0.5s ease;
+    font-size: 18px;
+}
+
+.row button:hover {
+    cursor: pointer;
+    scale: 1.05;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow: auto;
+    margin-top: -20px;
+}
+
+.list::-webkit-scrollbar{
+    width: 15px;
+    background-color: #9198e553;
+    
+}
+
+.list::-webkit-scrollbar-track {
+    background-color: #9198e585;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background-color: #9198e5;
+}
+
+.list::-webkit-scrollbar-button {
+    background-color: #9198e553;
+    height: 7px;
+    width: 7px;
+}
+
+.tasks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    /*gap: 10px;*/
+    background-color: var(--bg-tasks);
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.task {
+    display: flex;
+}
+
+.task .progress {
+    margin-right: 10px;
+    accent-color: var(--details);
+}
+
+.task .task-description {
+    color: #fff;
+    font-size: 16px;
+    padding: 4px 0px;
+    width: 100%;
+}
+
+.task-description.checked{
+    text-decoration: line-through;
+    color: #555;
+    font-style: italic;
+}
+
+.task .task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    font-size: 16px;
+}
+
+.action-button.delete-button {
+    color: var(--details);
+}
+
+.action-button.delete-button:hover{
+    cursor: pointer;
+}
+
+/* .hidden {
+    display: none;
+} */
+
+@media screen and (max-width: 600px) {
+    .todo-app {
+        width: 300px;
+    }
+}
