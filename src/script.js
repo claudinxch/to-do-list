@@ -32,6 +32,8 @@ function addTask() {
             taskDescription.classList.toggle('checked', progress.checked);
         });
 
+        deleteTask();
+
         saveData();
 
     }
@@ -43,17 +45,19 @@ inputBox.addEventListener("keydown", function (e) {
     }
 });
 
-list.addEventListener("click", function(e) {
-    if (e.target.tagName === 'I') {
-        let closestTask = e.target.closest('.tasks');
-
-        if (closestTask) {
-            console.log('Deleting task:', closestTask.querySelector('.task-description').textContent);
-            closestTask.remove();
-            saveData();
+function deleteTask(){
+    list.addEventListener("click", function(e) {
+        if (e.target.tagName === 'I') {
+            let closestTask = e.target.closest('.tasks');
+    
+            if (closestTask) {
+                console.log('Deleting task:', closestTask.querySelector('.task-description').textContent);
+                closestTask.remove();
+                saveData();
+            }
         }
-    }
-}, false);
+    }, false);    
+}
 
 function saveData() {
     localStorage.setItem("data", list.innerHTML);
